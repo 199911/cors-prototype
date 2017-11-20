@@ -4,7 +4,7 @@ block content
   h1= title
   hr
 
-  h2 Same origin
+  h2 Same origin (Relative path)
   p Access-Control-Allow-Origin header will be ignored, no matter the header is correct or wrong, even invalid
   button(id='same-origin-no-origin') Same origin request with no CORS origin
   br
@@ -15,6 +15,25 @@ block content
   button(id='same-origin-wrong-origin') Same origin request with "remote.example.com" CORS origin
   br
   button(id='same-origin-invalid-origin') Same origin request with "*.example.com" CORS origin
+  br
+  hr
+
+  h2 Cross origin (Absolute path)
+  p When the url is absolute (//local.example.com/...), is it consider as cross origin. CORS header will be take into consideration
+  button(id='hardcoded-same-origin-no-origin') Same origin (hardcode in absolute url) request with no CORS origin
+  p Must have Access-Control-Allow-Origin.
+  br
+  button(id='hardcoded-same-origin-all-origin') Same origin (hardcode in absolute url) request with "*" CORS origin
+  p * means allow all origin
+  br
+  button(id='hardcoded-same-origin-correct-origin') Same origin (hardcode in absolute url) request with "local.example.com" CORS origin
+  p Exact match this domain (local.example.com)
+  br
+  button(id='hardcoded-same-origin-wrong-origin') Same origin (hardcode in absolute url) request with "remote.example.com" CORS origin
+  p Exact match another domain (remote.example.com)
+  br
+  button(id='hardcoded-same-origin-invalid-origin') Same origin (hardcode in absolute url) request with "*.example.com" CORS origin
+  p *.example.com will not be expand as "local.example.com" or "remote.example.com", it is considered as exact match
   br
   hr
 
