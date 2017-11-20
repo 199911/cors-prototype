@@ -2,4 +2,21 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  hr
+
+  h2 Same origin
+  p Access-Control-Allow-Origin header will be ignored, no matter the header is correct or wrong, even invalid
+  button(id='same-origin-no-origin') Same origin request with no CORS origin
+  br
+  button(id='same-origin-all-origin') Same origin request with "*" CORS origin
+  br
+  button(id='same-origin-correct-origin') Same origin request with "local.example.com" CORS origin
+  br
+  button(id='same-origin-wrong-origin') Same origin request with "remote.example.com" CORS origin
+  br
+  button(id='same-origin-invalid-origin') Same origin request with "*.example.com" CORS origin
+  br
+  hr
+
+  script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+  script(src="/javascripts/index.js")
